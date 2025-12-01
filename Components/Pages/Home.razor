@@ -1,10 +1,64 @@
 ﻿@using BlazorWeb_New.Components.Server;
+@using Google.Apis.Services;
+@using Google.Apis.YouTube.v3;
+@using Google.Apis.YouTube.v3.Data;
+
+@inject YouTubeApiService YoutubeService;
+
+
 @page "/"
 
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
+<h1 id="Header">Youtube Scanner</h1>
+
+<input id="TextInputBar" type="text" @bind="_searchQuery" placeholder="Channel Name">
+<button class="buttons" @onclick="FindQuery">Search</button>
+
+@if (_channelStats != null)
+{
+    <div>
+        <dl>
+            <dt>Subscribers</dt>
+            <dd>@_channelStats.Subscribers.ToString("N0")</dd>
+            <dt>Date Created</dt>
+            <dd>@_channelStats.DateCreated.ToString("MMMM dd, yyyy")</dd>
+            <dt>Videos</dt>
+            <dd>@_channelStats.VideoCount.ToString("N0")</dd>
+        </dl>
+    </div>
+}
+
 @code {
+    private string _searchQuery;
+    private bool _resultsVisible = false;
+    private bool __isLoading;
     
+    private ChannelStats? _channelStats;
+
+    private void FindQuery()
+    {
+        
+    }
+    
+    private class ChannelStats
+    {
+        public long Subscribers { get; set; }
+        public DateTime DateCreated { get; set; }
+        public int VideoCount { get; set; }
+    }
+
+    private async Task FetchChannelData()
+    {
+        __isLoading = true;
+
+        await Task.Delay(1000);
+        
+        _channelStats = new ChannelStats()
+        {
+            
+        }
+    }
 }

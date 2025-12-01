@@ -26,6 +26,6 @@ app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-builder.Services.AddScoped<Database>();
+builder.Services.AddScoped<YouTubeApiService>();
 
 app.Run();
