@@ -4,5 +4,9 @@ appsettings.Development.json
 bin
 obj
 *.user
+<<<<<<< HEAD
 *.suo
 appsettings.json
+=======
+*.suo
+>>>>>>> 4dff6344add2f185356e2c6b32bc37aea0a93c77
