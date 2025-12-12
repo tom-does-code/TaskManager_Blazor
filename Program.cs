@@ -3,6 +3,8 @@ using BlazorWeb_New.Components.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddScoped<YouTubeApiService>();
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
@@ -26,6 +28,5 @@ app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-builder.Services.AddScoped<YouTubeApiService>();
 
 app.Run();

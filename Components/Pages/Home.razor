@@ -31,34 +31,92 @@
     </div>
 }
 
+@if (_isLoading == true)
+{
+    <p id="loading-text">Loading...</p>
+}
+
+<p>@ErrorWarning</p>
+
 @code {
-    private string _searchQuery;
-    private bool _resultsVisible = false;
-    private bool __isLoading;
+    private string? _searchQuery;
+    //private bool _resultsVisible = false;
+    private bool _isLoading;
     
     private ChannelStats? _channelStats;
+    
+    private string _errorWarning = "";
 
-    private void FindQuery()
+    private string ErrorWarning
     {
+        get => _errorWarning;
+        set
+        {
+            _errorWarning = value;
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+
+    private async Task FindQuery()
+    {
+        if (_searchQuery != null && !string.IsNullOrEmpty(_searchQuery))
+        {
+            Console.WriteLine(_searchQuery);
+            _isLoading = true;
         
+            await Task.Delay(2000);
+        
+            _isLoading = false;
+
+            await FetchChannelData(_searchQuery);
+        }
     }
     
     private class ChannelStats
     {
         public long Subscribers { get; set; }
-        public DateTime DateCreated { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
         public int VideoCount { get; set; }
     }
 
-    private async Task FetchChannelData()
+    private async Task InvalidChannel()
     {
-        __isLoading = true;
+        ErrorWarning = "Invalid Channel ID";
+        await Task.Delay(3000);
+        ErrorWarning = "";
+    }
 
-        await Task.Delay(1000);
-        
-        _channelStats = new ChannelStats()
+    private async Task FetchChannelData(string channelName)
+    {
+        if (!string.IsNullOrEmpty(channelName) && _searchQuery != null)
         {
-            
-        }
+            try
+            {
+                var channel = await YoutubeService.GetChannelAsync(_searchQuery);
+
+                if (channel != null)
+                {
+                    long subscribers = (long)(channel.Statistics.SubscriberCount ?? 0);
+                    int videoCount = (int)(channel.Statistics.VideoCount ?? 0);
+
+                    DateTimeOffset dateCreated = channel.Snippet.PublishedAtDateTimeOffset ?? DateTime.Now;
+                    
+                    Console.WriteLine("Pass");
+                    _channelStats = new ChannelStats()
+                    {
+                        Subscribers = (int)(channel.Statistics.SubscriberCount ?? 0),
+                        DateCreated = dateCreated,
+                        VideoCount = videoCount
+                    };
+                }
+                else
+                {
+                    await InvalidChannel();
+                }
+            } catch (ArgumentException e)  {
+                Console.WriteLine(e);
+            }
+        } else {}
     }
 }

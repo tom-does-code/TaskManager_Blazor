@@ -84,3 +84,13 @@ C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\obj\Debug\net10.0\refi
 C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\obj\Debug\net10.0\BlazorWeb_New.pdb
 C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\obj\Debug\net10.0\BlazorWeb_New.genruntimeconfig.cache
 C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\obj\Debug\net10.0\ref\BlazorWeb_New.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\obj\Debug\net10.0\BlazorWeb_New.csproj.AssemblyReference.cache
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\bin\Debug\net10.0\Google.Apis.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\bin\Debug\net10.0\Google.Apis.Auth.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\bin\Debug\net10.0\Google.Apis.Core.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\bin\Debug\net10.0\Google.Apis.YouTube.v3.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\bin\Debug\net10.0\System.CodeDom.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\bin\Debug\net10.0\System.Management.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\Halcy\Desktop\Github\BlazorWeb_New\BlazorWeb_New\obj\Debug\net10.0\BlazorWe.DE7A0B3C.Up2Date
